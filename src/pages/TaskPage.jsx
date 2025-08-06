@@ -1,13 +1,15 @@
-import { ChevronLeftIcon } from "lucide-react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { ChevronLeftIcon } from "lucide-react"; //icons de lucide-react
+import { useNavigate, useSearchParams } from "react-router-dom"; //navegação e parâmetros
 import Title from "../components/Title";
 
+// componente principal
 function TaskPage() {
-  const navigate = useNavigate(); // pra navegação
-  const [searchParams] = useSearchParams(); //hooke query parametros
-  const title = searchParams.get("title");
-  const description = searchParams.get("description");
+  const navigate = useNavigate(); //  função do react-router-dom para navegar para outra rota via código
+  const [searchParams] = useSearchParams(); //hook do react-router-dom para pegar os parâmetros da URL
+  const title = searchParams.get("title"); //recebe o valor do parâmetro title
+  const description = searchParams.get("description"); //recebe o valor do parâmetro description
 
+  //return do componente TaskPage
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px] space-y-4">
@@ -29,5 +31,4 @@ function TaskPage() {
     </div>
   );
 }
-
 export default TaskPage;
