@@ -8,9 +8,16 @@ import Title from "./components/Title";
 
 // componente principal
 function App() {
-  const [tasks, setTasks] = //usando useState
-    //cria um estado React (useState) cujo valor inicial vem do localStorage
-    useState(JSON.parse(localStorage.getItem("tasks"))) || [];
+  const [tasks, setTasks] = useState(() => {
+    //usando useState
+    const saved = JSON.parse(localStorage.getItem("tasks")) || []; //cria um estado React (useState) cujo valor inicial vem do localStorage
+
+    // adiciona isCompleted: false se não existir
+    return saved.map((task) => ({
+      isCompleted: false,
+      ...task,
+    }));
+  });
 
   //salva automaticamente no localStorage toda vez que o estado tasks mudar
   useEffect(() => {

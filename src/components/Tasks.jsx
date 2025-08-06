@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { CheckIcon, ChevronRightIcon, TrashIcon } from "lucide-react"; //icons de lucide-react
+import { ChevronRightIcon, TrashIcon } from "lucide-react"; //icons de lucide-react
 import { useNavigate } from "react-router-dom"; //navegação
 import Button from "./Button";
 
@@ -29,7 +29,7 @@ function Tasks(props) {
             <button
               onClick={() => props.onTaskClick(task.id)} //marcar e desmarcar tarefa como concluída
               className={`bg-slate-400 text-left w-full text-white p-2 rounded-md ${
-                task.isCompleted && "line-through" && <CheckIcon /> // se tiver concluida mostra o icon
+                task.isCompleted && "line-through" // se tiver concluida coloca a linha
               }`}
             >
               {task.title}
